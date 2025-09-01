@@ -1,0 +1,10 @@
+---
+- name: this play book is to install create multiple users
+  hosts: all
+  become: yes
+  tasks:
+    - name: creating users
+      user:
+       name: ['akshay', 'padma']
+       state: present
+        

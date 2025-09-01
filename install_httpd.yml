@@ -1,0 +1,16 @@
+---
+- name: this playbook is to install pack and its service as well
+  hosts: all
+  become: yes
+  tasks:
+   - name: installing httpd
+     yum:
+       name: httpd
+       state: present
+
+
+   - name: starting httpd service
+     service:
+       name: httpd
+       state: started
+

@@ -1,0 +1,37 @@
+---
+- name: to make all nodes as webservers in one go and copy indexfile from source
+  hosts: all
+  become: true
+  tasks:
+
+    - name: to install httpd package
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Start httpd service
+      service:
+        name: httpd
+        state: started
+      when: ansible_os_family == "RedHat"
+
+    - name: to install apache2 package
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Start apache2 service
+      service:
+        name: apache2
+        state: started
+      when: ansible_os_family == "Debian"
+
+    - name: copy indexfile
+      copy:
+        src: /home/ansadmin/index.html
+        dest: /var/www/html/
+        mode: 0777
+
+

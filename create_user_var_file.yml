@@ -1,0 +1,11 @@
+---
+- name: creating a playbook for user creation trough varibale declaring outside playbook
+  hosts: all
+  become: yes
+  vars_files:
+  - user.yml
+  tasks:
+  - name: creater user {{user2}}
+    user:
+      name: "{{user2}}" 
+

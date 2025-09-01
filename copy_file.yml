@@ -1,0 +1,9 @@
+---
+- name: this playbook is to copy a file from src to nodes
+  hosts: all
+  become: yes
+  tasks:
+  - name: pasting indexfile
+    copy:
+      src: /home/ansadmin/index.html
+      dest: /var/www/html

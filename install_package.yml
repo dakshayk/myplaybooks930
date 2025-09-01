@@ -1,0 +1,9 @@
+---
+- name: this play book is to install a package
+  hosts: all
+  become: yes
+  tasks:
+   - name: Install git
+     yum:
+       name: git
+       state: present

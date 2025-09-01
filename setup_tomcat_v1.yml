@@ -1,0 +1,32 @@
+---
+- name: install tomcat in all nodes and starting the service as well
+  hosts: all
+  become: yes
+  tasks:
+  - name: installing java on redhat
+    yum:
+      name: java
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: installing java on Debian
+    yum:
+      name: default-jdk
+      state: present
+    when: ansible_os_family == "Debian"
+
+  - name: Downloading tomcat package on all nodes
+    get_url:
+      url: https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.10/bin/apache-tomcat-11.0.10.tar.gz
+      dest: /opt
+
+  - name: extracting tomcat
+    unarchive:
+      src: /opt/apache-tomcat-11.0.10.tar.gz
+      dest: /opt
+      remote_src: yes # after extracting it will verify again apache-tomcat-11.0.10 package whether that is present or not!!
+
+  - name: starting .sh file
+    command: /opt/apache-tomcat-11.0.10/bin/startup.sh
+    
+

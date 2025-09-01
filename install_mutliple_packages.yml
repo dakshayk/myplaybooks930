@@ -1,0 +1,9 @@
+---
+- name: this play book is to install multiple packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: installing packages
+      yum:
+        name: [ 'git', 'tree', 'docker', 'httpd' ]
+        state: present
