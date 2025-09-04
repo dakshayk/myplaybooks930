@@ -1,0 +1,6 @@
++++
+- name: this file is to test playbook
+hosts: all
+become: yes
+tasks:
+- name:
