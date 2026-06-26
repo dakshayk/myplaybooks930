@@ -8,7 +8,7 @@
         name: httpd
         state: present
         notify: start apache
-
+  handlers:
     - name: start apache
       service:
         name: httpd
