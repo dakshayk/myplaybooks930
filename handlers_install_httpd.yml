@@ -7,7 +7,7 @@
       yum:
         name: httpd
         state: present
-        notify: start apache
+        notify: start apache  #start apache is match with handlers name: start apache
   handlers:
     - name: start apache
       service:
