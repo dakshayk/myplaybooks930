@@ -1,4 +1,4 @@
----
+---      # main playbook
 - name: creating a playbook for user creation trough varibale declaring outside playbook
   hosts: all
   become: yes
@@ -9,3 +9,7 @@
     user:
       name: "{{user2}}" 
 
+#child playbook 
+vi user.yml
+user1: dipika
+user2: amrutha
