@@ -7,7 +7,7 @@
   tasks:
   - name: creater user {{user2}}
     user:
-      name: "{{user2}}" 
+      name: "{{user2}}"     # declaring a varibale in YAML scripting lang
 
 #child playbook 
 vi user.yml
