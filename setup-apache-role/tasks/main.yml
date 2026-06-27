@@ -16,6 +16,6 @@
 
 - name: copy index file
   copy:
-    src: index.html
+    src: index.html        #No need to give index file path bcz what ever file name we mention that file name should be found from files folder
     dest: /var/www/html
     mode: 0777
